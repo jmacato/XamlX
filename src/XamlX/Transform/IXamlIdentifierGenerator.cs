@@ -16,6 +16,8 @@ namespace XamlX.Transform
 #endif
     class GuidIdentifierGenerator : IXamlIdentifierGenerator
     {
-        public string GenerateIdentifierPart() => Guid.NewGuid().ToString().Replace("-","");
+        private int _nextId = 1;
+        
+        public string GenerateIdentifierPart() => (_nextId++).ToString();
     }
 }
